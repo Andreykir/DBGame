@@ -30,7 +30,14 @@ public class DBManager {
 		db = context.openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
 		createTablesIfNeedBe(); 
 	}
-
+	int sumScore()
+	{
+		String query = "SELECT SUM (SCORE) FROM RESULTS;";
+		Cursor cursor = db.rawQuery(query, null);
+		cursor.moveToFirst();
+		String score = cursor.getString(cursor.getColumnIndex("SCORE"));
+		return Integer.parseInt(score);
+	}
 	void addResult(String username, int score) {
 		db.execSQL("INSERT INTO RESULTS VALUES ('" + username + "', " + score
 				+ ");");

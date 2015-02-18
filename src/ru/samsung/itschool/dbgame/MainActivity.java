@@ -52,10 +52,11 @@ public class MainActivity extends Activity {
 						            Integer.parseInt(MainActivity.this.gameResult.getText().toString()));
 			}
 		});
-
-		gameResult.setText(((int) (Math.random() * 1001))+"");
-		gameResult.startAnimation(play);
-
+		for(int i = 0; i < 5; i ++)
+		{
+			gameResult.setText(((int) (Math.random() * 1001))+"");
+			gameResult.startAnimation(play);
+		}
 	}
 
 	public void showHoF(View v) {
